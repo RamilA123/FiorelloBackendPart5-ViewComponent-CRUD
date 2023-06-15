@@ -1,0 +1,15 @@
+﻿@model CategoryDetailVM
+@{
+    ViewData["Title"] = "Detail";
+}
+<style>
+    .detail{
+        padding: 25px !important;
+    }
+</style>
+<div class="detail pt-3 px-3">
+    <h3 class="my-4">Name : @Model.Name</h3>
+    <h3 class="my-4">Created Date : @Model.CreatedDate</h3>
+    <a class="btn btn-primary btn-rounded mb-2" asp-controller="Category" asp-action="Index">Back</a>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model List<CategoryVM>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+
+
+<style>
+    thead{
+        background: silver;
+    }
+
+    tbody{
+        background: floralwhite;
+    }
+
+    .table-bordered{
+        border: 1px solid black !important;
+    }
+
+</style>
+
+<div class="container">
+    <h1 class="text-center my-3">Archive - Categories</h1>
+    <div class="btn-create">
+        <a class="btn btn-success btn-rounded" asp-action="Create">Create</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered my-5">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (CategoryVM category in Model)
+                {
+                    <tr>
+                        <td>
+                            @category.Name
+                        </td>
+                        <td>
+                            <form style="display: inline-block" method="post" asp-action="Extract" asp-route-id="@category.Id">
+                                <button type="submit" class="btn btn-primary btn-rounded">Extract</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
